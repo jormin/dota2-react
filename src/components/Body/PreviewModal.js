@@ -29,7 +29,7 @@ class PreviewModal extends Component {
         });
     }
     download = (e) => {
-        console.log('开始下载');
+        window.open(this.state.loadscree.origin);
     }
     render() {
         return (

@@ -12,13 +12,13 @@ class App extends Component {
         this.state = { 
 			loading: true,
 			loadscrees: [],
-			page: 0,
+			page: 1,
 			totalPages: 1,
 			total: 0,
         }
     }
 	get(){
-		const domain = 'api';
+		const domain = 'https://api.dota2.lerzen.com';
         axios.get(domain+'/load-scree/index.html?page='+this.state.page).then((res)=>{
 			if(res.data.status === 1){
 				const loadscrees = this.state.loadscrees;
@@ -35,7 +35,6 @@ class App extends Component {
 					loading: false,
 				});
 			}
-            console.log(res.data);
         }).catch((err)=>{
 			this.setState({
 				loading: false,
@@ -45,7 +44,20 @@ class App extends Component {
 	}
 	componentDidMount () {
 		this.state.loading && this.get();
-	}
+        window.addEventListener('scroll', this.handleScroll.bind(this));
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll.bind(this));
+    }
+    handleScroll(event) {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if(document.documentElement.scrollHeight === document.documentElement.clientHeight + scrollTop ) {
+			this.setState({
+				loading: true,
+			});
+            this.get();
+        }  
+    }
   	render() {
     	return (
 			<div>
