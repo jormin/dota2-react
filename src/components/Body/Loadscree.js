@@ -9,9 +9,9 @@ class Loadscree extends Component {
         return ( 
             <li key={loadscree.name}>
                 <div className="am-gallery-item am_list_block">
-                    <a href="###" className="">
-                        <Lazyimg js_effect='transition.fadeIn' className="lazy am_img animated" src={loadscree.thumb} placeholder={placeholder}></Lazyimg>
-                    </a>
+                    <div className="" onClick={this.showModal}>
+                        <Lazyimg js_effect='transition.fadeIn' className="lazy am_img animated" src={loadscree.thumb} placeholder={placeholder} onClick={() => this.props.onClick(this)}></Lazyimg>
+                    </div>
                     <div className="am_listimg_info">
                         <span className="am-icon-heart"> {loadscree.name}</span>
                     </div>

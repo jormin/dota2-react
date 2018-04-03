@@ -6,7 +6,7 @@ class Footer extends Component {
         return ( 
             <footer className="am_footer">
                 <div className="am_info_line">
-                    ©&nbsp;{year}>&nbsp;-&nbsp;DotA2 小站&nbsp;-&nbsp;
+                    ©&nbsp;{year}&nbsp;-&nbsp;DotA2 小站&nbsp;-&nbsp;
                     <a target="_blank" rel="nofollow me noopener noreferrer" href="http://www.miitbeian.gov.cn/" className="external beian">京ICP备15006639号</a>
                 </div>
             </footer>

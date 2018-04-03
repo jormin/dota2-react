@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
 import './App.css';
+import './js/app.js';
 
 class App extends Component {
     constructor(props) {
@@ -46,8 +47,6 @@ class App extends Component {
 		this.state.loading && this.get();
 	}
   	render() {
-        console.log('App:');
-        console.log(this.state);
     	return (
 			<div>
 				<Header></Header>
