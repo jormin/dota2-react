@@ -34,7 +34,7 @@ class Body extends Component {
             <div className="body am-g am-imglist">
                 <LoadscreeList loadscrees={this.props.loadscrees} handleShowModal={this.handleShowModal}></LoadscreeList>
                 {this.props.loading && <Loading></Loading>}
-                {<PreviewModal visible={this.state.visible} loadscree={this.state.previewLoadscree} handleHideModal={()=>this.handleHideModal}></PreviewModal>}
+                {this.state.visible && <PreviewModal visible={this.state.visible} id={this.state.previewLoadscree.id} handleHideModal={()=>this.handleHideModal}></PreviewModal>}
             </div>
         )
     }

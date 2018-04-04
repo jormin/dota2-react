@@ -28,7 +28,12 @@
 
 .loading-wrap{ text-align: center; padding: 20px; color: #d1d1d1;}
 .ant-modal-footer{ text-align: center !important; }
-
+.preview-modal .switch{ position: absolute;margin: auto; }
+.preview-modal .switch-left{ left: 17px; bottom: 0; top: 0; }
+.preview-modal .switch-right{ right: 17px;bottom: 0; top: 0; }
+.preview-modal .switch-top{ top: 17px; left: 0; right: 0; }
+.preview-modal .switch-bottom{ bottom: 17px; left: 0; right: 0; }
+.preview-modal .ant-modal-body{ text-align: center; }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
+import Config from './config.json';
 import './App.css';
 import './js/app.js';
 
@@ -15,11 +16,30 @@ class App extends Component {
 			page: 1,
 			totalPages: 1,
 			total: 0,
+			config: {
+				site: {}
+			}
         }
     }
-	get(){
-		const domain = 'https://api.dota2.lerzen.com';
-        axios.get(domain+'/load-scree/index.html?page='+this.state.page).then((res)=>{
+	getSiteConfig(){
+        axios.get(Config.apiDomain+Config.api.config.site).then((res)=>{
+			if(res.data.status === 1){
+				const data = res.data.data;
+				this.setState({
+					config: {
+						site: data
+					}
+				});
+				document.title = data.appName;
+			}
+        })
+	}
+	getLoadscrees(){
+        axios.get(Config.apiDomain+Config.api.loadscree.index, {  
+			params : {
+				page : this.state.page
+			}  
+		}).then((res)=>{
 			if(res.data.status === 1){
 				const loadscrees = this.state.loadscrees;
 				const data = res.data.data;
@@ -43,7 +63,8 @@ class App extends Component {
         })
 	}
 	componentDidMount () {
-		this.state.loading && this.get();
+		this.getSiteConfig();
+		this.state.loading && this.getLoadscrees();
         window.addEventListener('scroll', this.handleScroll.bind(this));
     }
     componentWillUnmount() {
@@ -55,7 +76,7 @@ class App extends Component {
 			this.setState({
 				loading: true,
 			});
-            this.get();
+            this.getLoadscrees();
         }  
     }
   	render() {
@@ -63,7 +84,7 @@ class App extends Component {
 			<div>
 				<Header></Header>
 				<Body loadscrees={this.state.loadscrees} loading={this.state.loading}></Body>
-				<Footer></Footer>
+				<Footer site={this.state.config.site}></Footer>
 			</div>
     	);
   	}
