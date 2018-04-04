@@ -52,7 +52,6 @@ ul.am-dropdown-content>li>a:focus, ul.am-dropdown-content>li>a:hover { backgroun
 .am_list_block { padding: 10px; background: #fff; position: relative; }
 .am_listimg_info { color: #d1d1d1; padding-top: 5px; }
 .am-icon-heart:before { font-size: 14px; margin-right: 8px;}
-.am-icon-heart { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;};
 .am-icon-comments:before { font-size: 14px; margin-right: 8px;}
 .am_listimg_right {  float: right; margin-right: 0;}
 .am_listimg_info span { margin-right: 15px; font-size: 12px; }
@@ -71,7 +70,7 @@ ul.am-dropdown-content>li>a:focus, ul.am-dropdown-content>li>a:hover { backgroun
 .am_imglist_user_ico img { width: 20px;height: 20px; border-radius:50%;}
 .am_imglist_user_font { font-size: 12px;}
 .am_img_bg { background: url(../img/loading.gif) no-repeat center; display: block;}
-.am_img{ cursor: pointer;}
+.am_list_block{ cursor: pointer;}
 .am_footer { width: 100%;padding: 35px 0 0 0;}
 .am_footer_con { max-width: 1500px; text-align: center; margin: 0 auto; overflow: hidden; padding: 0 10px 40px;-webkit-box-sizing: border-box;box-sizing: border-box;}
 .am_footer_link { overflow: hidden;  display: inline-block; vertical-align: top; margin-right: 80px;}
