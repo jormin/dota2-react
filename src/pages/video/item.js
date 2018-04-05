@@ -26,11 +26,12 @@ class Video extends Component {
     }
     render() { 
         const video = this.props.video;
+        const tagColor = video.official === '1' ? '#BA4429' : '#608418';
         return ( 
             <li key={video.id}>
                 <div className="video-item am-gallery-item am_list_block" onMouseEnter={this.handleMouseOverCover} onMouseLeave={this.handleMouseOutCover} onClick={() => this.props.handleShowModal(this)}>
                     <div className="video-cover" onClick={this.showModal}>
-                        <Tag color="#BA4429" className='video-tag'>官方</Tag>
+                        <Tag color={tagColor} className='video-tag'>{video.tag}</Tag>
                         <Lazyimg js_effect='transition.fadeIn' className="lazy am_img animated" src={video.cover} placeholder={placeholder}></Lazyimg>
                         <div className='video-duration'>
                             <span>{video.duration}</span>

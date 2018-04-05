@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, message } from 'antd';
+import { Modal, Button, message, Tag } from 'antd';
 import PreviewImage from './previewImage';
 import PreviewVideo from './previewVideo';
 import axios from 'axios';
@@ -68,13 +68,15 @@ class PreviewModal extends Component {
         return this.state.previewItem;
     }
     render() {
+        const previewItem = this.state.previewItem;
         const downloadButton = <Button key="download" onClick={this.download} type="success">{this.props.dataType === 'picture' ? '下载原图' : '下载视频'}</Button>;
+        const title = this.props.dataType === 'picture' ? previewItem.name : <div><Tag color={previewItem.official === '1' ? '#BA4429' : '#608418'}>{previewItem.tag}</Tag>{previewItem.name}</div>;
         return (
             <div>
-                {this.props.visible && this.state.previewItem && 
+                {this.props.visible && previewItem && 
                     <Modal
                         className="preview-modal"
-                        title={this.state.previewItem.name}
+                        title={title}
                         visible={this.props.visible}
                         maskClosable={false}
                         destroyOnClose={true}
@@ -82,8 +84,8 @@ class PreviewModal extends Component {
                         onCancel={this.props.handleHideModal()}
                         footer={[downloadButton]}
                     >
-                        {this.props.dataType === 'picture' && this.state.previewItem.id && <PreviewImage picture={this.state.previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewImage>}
-                        {this.props.dataType === 'video' && this.state.previewItem.id && <PreviewVideo video={this.state.previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewVideo>}
+                        {this.props.dataType === 'picture' && this.state.previewItem.id && <PreviewImage picture={previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewImage>}
+                        {this.props.dataType === 'video' && this.state.previewItem.id && <PreviewVideo video={previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewVideo>}
                     </Modal> 
                 }
             </div>
