@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Modal, Button, message } from 'antd';
-import PreviewImage from './PreviewImage';
+import PreviewImage from './previewImage';
+import PreviewVideo from './previewVideo';
 import axios from 'axios';
 import Config from '../../config.json';
 class PreviewModal extends Component {
     constructor(props){
         super(props);
         this.state = {
-            loadscree: {},
+            previewItem: {},
             prevID: 0,
             nextID: 0,
         }
@@ -21,13 +22,14 @@ class PreviewModal extends Component {
             message.info('没有更多数据了');
             this.props.handleHideModal();
             this.setState({
-                loadscree: {},
+                previewItem: {},
                 prevID: '',
                 nextID: '',
             });
             return false;
         }
-        axios.get(Config.apiDomain+Config.api.loadscree.detail, {  
+        const url = Config.apiDomain + (this.props.dataType === 'picture' ? Config.api.picture.detail : Config.api.video.detail);
+        axios.get(url, {  
 			params : {
 				id : id
 			}  
@@ -35,14 +37,14 @@ class PreviewModal extends Component {
 			if(res.data.status === 1){
 				const data = res.data.data;
 				this.setState({
-                    loadscree: data.loadScree,
+                    previewItem: data.item,
                     prevID: data.prevID,
                     nextID: data.nextID,
 				});
 			}else{
                 console.error(res.data.msg);
                 this.setState({
-                    loadscree: {},
+                    previewItem: {},
                     prevID: '',
                     nextID: '',
                 });
@@ -50,34 +52,37 @@ class PreviewModal extends Component {
         }).catch((err)=>{
             console.error(err.status);
             this.setState({
-                loadscree: {},
+                previewItem: {},
                 prevID: '',
                 nextID: '',
             });
         })
     }
     download = (e) => {
-        window.open(this.state.loadscree.origin);
+        if(this.props.dataType === 'picture'){
+            window.open(this.state.previewItem.origin);
+        }else{
+            window.open(this.state.previewItem.url);
+        }
     }
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state.loadscree;
+        return this.state.previewItem;
     }
     render() {
+        const downloadButton = <Button key="download" onClick={this.download} type="success">{this.props.dataType === 'picture' ? '下载原图' : '下载视频'}</Button>;
         return (
             <div>
-                {this.props.visible && this.state.loadscree && 
+                {this.props.visible && this.state.previewItem && 
                     <Modal
                         className="preview-modal"
-                        title={this.state.loadscree.name}
+                        title={this.state.previewItem.name}
                         visible={this.props.visible}
                         width={1172}
                         onCancel={this.props.handleHideModal()}
-                        footer={[
-                                <Button key="download" onClick={this.download} type="success">下载原图</Button>,
-                            ]
-                        }
+                        footer={[downloadButton]}
                     >
-                        {this.state.loadscree.preview && <PreviewImage loadscree={this.state.loadscree} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewImage>}
+                        {this.props.dataType === 'picture' && this.state.previewItem.id && <PreviewImage picture={this.state.previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewImage>}
+                        {this.props.dataType === 'video' && this.state.previewItem.id && <PreviewVideo video={this.state.previewItem} handleClick={this.getPreviewData} prevID={this.state.prevID} nextID={this.state.nextID}></PreviewVideo>}
                     </Modal> 
                 }
             </div>

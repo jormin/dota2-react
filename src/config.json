@@ -1,1 +1,16 @@
-{"apiDomain":"https://api.dota2.lerzen.com","api":{"config":{"site":"/config/site.html"},"loadscree":{"index":"/load-scree/index.html","detail":"/load-scree/detail.html"}}}
+{
+    "apiDomain": "https://api.dota2.lerzen.com",
+    "api": {
+        "config": {
+            "site": "/config/site.html"
+        },
+        "picture": {
+            "index": "/picture/index.html",
+            "detail": "/picture/detail.html"
+        },
+        "video": {
+            "index": "/video/index.html",
+            "detail": "/video/detail.html"
+        }
+    }
+}

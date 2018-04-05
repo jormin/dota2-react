@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import TopMenu from './TopMenu';
+import {withRouter} from "react-router-dom";
 class Header extends Component {
     render() { 
         return ( 
-            <header className="header">
-            </header>
+            <TopMenu history={this.props.history}></TopMenu>
         )
     }
 }
  
-export default Header;
+export default withRouter(Header);

@@ -47,7 +47,7 @@ ul.am-dropdown-content>li>a:focus, ul.am-dropdown-content>li>a:hover { backgroun
  .am-btn {  border:none; }
 .banner_navbg { background: url(../img/bannner_smallbg.png) repeat-x; width: 100%; height: 62px;}
 .am-g { max-width: 1500px;}
-.am-imglist { max-width: 1540px; padding: 20px 0; padding-top: 0;}
+.am-imglist { max-width: 1540px; padding: 20px 0; }
 .banner_nav { line-height: 61px; font-size: 12px; margin: 0 10px;}
 .am_list_block { padding: 10px; background: #fff; position: relative; }
 .am_listimg_info { color: #d1d1d1; padding-top: 5px; }
@@ -444,8 +444,6 @@ ul.am-tabs-nav.am-cf.am_cf { background: #fafafa;}
 ul.am-tabs-nav.am-cf.am_cf { background: #fafafa;}
 
 /* 本地服务列表*/
-.ztlb_nr_block { padding: 12px; background: url(../img/kj.png)  center -80px no-repeat; -webkit-background-size: 100%;
-background-size: 100%; }
 .ztlb_nr_block_l { width: 45px;}
 .ztlb_nr_block_r { margin-left: 55px;}
 .ztlb_nr_block_r_title { font-size: 16px; color: #fff; font-weight: bolder;}
@@ -478,7 +476,6 @@ background-size: 100%; }
 .ztlb_nr_block_r_info_copy {  display: block; position: absolute; bottom:0px;  font-size: 12px; height: 29px; line-height: 28px; background:rgba(0,0,0,.3); width: 100%; color: #fff;}
 .ztlb_nr_block_r_info_copy_bg { z-index: 9; display: block; position: absolute; bottom:0px;  font-size: 12px; height: 29px; line-height: 28px; background:rgba(0,0,0,.3); width: 100%; color: #fff;}
 .ztlb_nr_block_r_info_copy_bg span { display: inline-block; width: 49%; text-align: center;}
-.ztlb_nr_block { padding: 12px; background: url(../img/kj.png)  center top no-repeat; -webkit-background-size: 100%;background-size: 100%; }
 .ztlb_nr_list { padding: 0px; }
 .ztlb_nr_block_l { display: none;}
 .ztlb_nr_block_r { position: absolute; margin: 0; background:url(../img/tm.png) repeat-x;max-width:100%; left:0; bottom: 30px;color: #fff; padding: 20px;  padding-top: 8px;}

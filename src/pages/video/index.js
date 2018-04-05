@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
-import Config from './config.json';
-import './App.css';
-import './js/app.js';
+import Header from '../../components/header';
+import Body from '../../components/body';
+import Footer from '../../components/footer';
+import Config from '../../config.json';
 
-class App extends Component {
+class Video extends Component {
     constructor(props) {
         super(props);
         this.state = { 
 			loading: true,
-			loadscrees: [],
+			videos: [],
 			page: 1,
 			totalPages: 1,
 			total: 0,
@@ -34,17 +32,17 @@ class App extends Component {
 			}
         })
 	}
-	getLoadscrees(){
-        axios.get(Config.apiDomain+Config.api.loadscree.index, {  
+	getvideos(){
+        axios.get(Config.apiDomain+Config.api.video.index, {  
 			params : {
 				page : this.state.page
 			}  
 		}).then((res)=>{
 			if(res.data.status === 1){
-				const loadscrees = this.state.loadscrees;
+				const videos = this.state.videos;
 				const data = res.data.data;
 				this.setState({
-					loadscrees: loadscrees.concat(data.loadScrees),
+					videos: videos.concat(data.list),
 					loading: false,
 					page: (this.state.page+1),
 					totalPages: data.totalPages,
@@ -64,7 +62,7 @@ class App extends Component {
 	}
 	componentDidMount () {
 		this.getSiteConfig();
-		this.state.loading && this.getLoadscrees();
+		this.state.loading && this.getvideos();
         window.addEventListener('scroll', this.handleScroll.bind(this));
     }
     componentWillUnmount() {
@@ -76,18 +74,18 @@ class App extends Component {
 			this.setState({
 				loading: true,
 			});
-            this.getLoadscrees();
+            this.getvideos();
         }  
     }
   	render() {
     	return (
 			<div>
-				<Header></Header>
-				<Body loadscrees={this.state.loadscrees} loading={this.state.loading}></Body>
+				<Header history={this.history}></Header>
+				<Body list={this.state.videos} loading={this.state.loading} dataType='video'></Body>
 				<Footer site={this.state.config.site}></Footer>
 			</div>
     	);
   	}
 }
 
-export default App;
+export default Video;
