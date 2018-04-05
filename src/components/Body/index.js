@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loading from './loading';
 import PictureList from '../../pages/picture/list';
 import VideoList from '../../pages/video/list';
-import PreviewModal from './previewModal.js';
+import PreviewModal from '../previewModal/previewModal.js';
 
 class Body extends Component {
     static previewItem = {

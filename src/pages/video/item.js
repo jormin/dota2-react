@@ -4,7 +4,7 @@ import Ellipsis from 'ant-design-pro/lib/Ellipsis';
 import { Icon, Tag } from 'antd';
 import 'velocity-animate';
 import 'velocity-animate/velocity.ui';
-import placeholder from '../../img/loading2.gif';
+import placeholder from '../../img/loading3.gif';
 class Video extends Component {
     constructor(){
         super();
@@ -42,7 +42,10 @@ class Video extends Component {
                         }
                     </div>
                     <div className="am_listimg_info">
-                        <Ellipsis lines={1} tooltip><Icon type="heart"/> {video.name}</Ellipsis>
+                        <Ellipsis className='am-footer am-footer-left' lines={1} tooltip>{video.name}</Ellipsis>
+                        <div className='am-footer am-footer-right'>
+                            <span><Icon type="play-circle"/> {video.viewAmount}</span>
+                        </div>
                     </div>
                 </div>
             </li>

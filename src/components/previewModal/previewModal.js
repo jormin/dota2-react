@@ -12,7 +12,6 @@ class PreviewModal extends Component {
             prevID: 0,
             nextID: 0,
         }
-        this.getPreviewData(props.id);
     }
     componentDidMount = () => {
         this.getPreviewData(this.props.id);
@@ -77,7 +76,9 @@ class PreviewModal extends Component {
                         className="preview-modal"
                         title={this.state.previewItem.name}
                         visible={this.props.visible}
-                        width={1172}
+                        maskClosable={false}
+                        destroyOnClose={true}
+                        width={1412}
                         onCancel={this.props.handleHideModal()}
                         footer={[downloadButton]}
                     >

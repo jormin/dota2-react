@@ -26,11 +26,27 @@
 .App-intro {
   font-size: large;
 }
-
+body,footer,#root{ background-image: url(./img/bg.jpg) !important; }
+footer{padding: 0;margin-top: 50px;}
+footer .am_info_line{ color: #999; }
+footer a{color: unset}
+footer .am_info_line:hover{ color: #BA4429; }
+footer a:hover{color: unset}
 .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{border-bottom: 2px solid #BA4429;color: #BA4429; }
 .ant-menu-horizontal > .ant-menu-item-no-bottom, .ant-menu-horizontal > .ant-menu-item-no-bottom:hover { border-bottom: 0; }
 .loading-wrap{ text-align: center; padding: 20px; color: #d1d1d1;}
-.ant-modal-footer{ text-align: center !important; }
+.ant-modal-wrap{ background-color: rgba(0,0,0,0.4); }
+.ant-modal-wrap .ant-modal-content{ background-color: transparent;box-shadow:none;-webkit-box-shadow:none; }
+.ant-modal-wrap .ant-modal-content .ant-modal-close { right: 33px; }
+.ant-modal-wrap .ant-modal-content .ant-modal-close .ant-modal-close-x{ font-size: 40px;color: #fff; }
+.ant-modal-wrap .ant-modal-content .ant-modal-header{ background-color: transparent;color: #fff;border:0; }
+.ant-modal-wrap .ant-modal-content .ant-modal-header .ant-modal-title{ color: #fff;text-align: center; }
+.ant-modal-wrap .ant-modal-content .ant-modal-footer{ text-align: center !important;border:0; }
+.ant-modal-wrap .ant-modal-content .ant-modal-footer button{ background-color: transparent;color: #fff; }
+.ant-modal-wrap .ant-modal-content .ant-modal-footer button:hover{ background-color: transparent;color: #BA4429;border-color: #BA4429; }
+.ant-modal-wrap .switch{ background-color: transparent !important;color: #E3E3E3 !important;border-color: #E3E3E3 !important; width: 80px !important;font-size: 50px !important;height: 80px !important;border: 0; }
+.ant-modal-wrap .switch:hover{ background-color: transparent !important;color: #BA4429 !important;border-color: #BA4429 !important; width: 80px !important;font-size: 50px !important;height: 80px !important; }
+.ant-modal-wrap .switch[disabled], .switch.disabled:hover, .switch[disabled]:hover, .switch.disabled:focus, .switch[disabled]:focus, .switch.disabled:active, .switch[disabled]:active, .switch.disabled.active, .switch[disabled].active { color: rgba(0, 0, 0, 0.25) !important; border-color: #d9d9d9 !important;color: rgba(255, 255, 255, 0.25) !important; }
 .preview-modal .switch{ position: absolute;margin: auto; }
 .preview-modal .switch-left{ left: 17px; bottom: 0; top: 0; }
 .preview-modal .switch-right{ right: 17px;bottom: 0; top: 0; }
@@ -45,11 +61,17 @@
 .video-item .video-cover .video-duration{ position: absolute;right: 0;bottom: 0;padding: 0 7px;background-color: #000;color: #fff;z-index: 100; }
 .video-item .video-cover .video-play{ position: absolute;width: 100%;background-color: rgba(186,68,41,0.3);width: 100%;height: 100%;top: 0;}
 .video-item .video-cover .video-play .video-play-icon{ position: absolute;color:#fff;font-size: 50px;top: 50%;left: 50%;margin-left: -25px;margin-top: -33px;opacity:1; }
-.am_listimg_info{ color:#BA4429;height: 30px; }
-.am-footer{ position: absolute;width: 50%;padding: 5px; }
-.am-footer.am-footer-left{ left: 0;text-align: left;padding: 0;padding-left: 10px;padding-right: 0; }
-.am-footer.am-footer-right{ right: 0;text-align: right;padding: 0;padding-right: 10px;padding-left: 0; }
+.am_listimg_info{ color:unset;height: 30px; }
+.am_listimg_info .am-footer{ position: absolute;width: 50%;padding: 5px;}
+.am_listimg_info .am-footer.am-footer-left{ left: 0;text-align: left;padding: 0;padding-left: 10px;padding-right: 0; }
+.am_listimg_info .am-footer.am-footer-right{ right: 0;text-align: right;padding: 0;padding-right: 10px;padding-left: 0; }
 .am_listimg_info span { margin-right: 0;font-size: 14px; }
+.am-gallery-item{color:#999;border-radius: 5px !important; }
+.am-gallery-item{background: transparent; color: #999;box-shadow: 0px 0px 3px 2px #333 inset;}
+.am-gallery-item:hover{background: transparent; color: #BA4429;box-shadow: 0px 0px 3px 2px #BA4429 inset;}
+.am-gallery-item .am_img{ max-height: 166px;border-radius: 5px; }
+.am-g .index-img{margin: 10% 0;width: 100%;}
+.preview-image{border: 1px solid #333;}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
-import HeaderSearch from 'ant-design-pro/lib/HeaderSearch';
 import logo from '../../img/logo.png';
 
 class TopMenu extends Component {
@@ -9,7 +8,7 @@ class TopMenu extends Component {
         var pathname = this.props.history.location.pathname;
         let currentMenu = '';
         switch(pathname){
-            case '/':
+            case '/picture':
                 currentMenu = 'picture';
                 break;
             case '/video':
@@ -23,10 +22,15 @@ class TopMenu extends Component {
         }
     }
     handleClick = (e) => {
-        this.setState({
-            currentMenu: e.key,
-        });
-        this.props.history.push(e.item.props.path);
+        const path = e.item.props.path;
+        if(path){
+            this.setState({
+                currentMenu: e.key,
+            });
+            this.props.history.push(e.item.props.path);
+        }else{
+            window.open(e.item.props.link);
+        }
     }
     render() { 
         return ( 
@@ -36,24 +40,20 @@ class TopMenu extends Component {
                     selectedKeys={[this.state.currentMenu]}
                     mode="horizontal"
                 >
-                    <Menu.Item className='ant-menu-item-no-bottom'>
+                    <Menu.Item className='ant-menu-item-no-bottom' path="/">
                         <img alt='logo' src={logo}/>
                     </Menu.Item>
-                    <Menu.Item key="picture" path="/">
+                    <Menu.Item key="picture" path="/picture">
                         <Icon type="picture" />载入动画
                     </Menu.Item>
                     <Menu.Item key="video" path="/video">
                         <Icon type="youtube" />官方视频
                     </Menu.Item>
-                    <Menu.Item key="record" path="/record">
-                        <Icon type="clock-circle-o" />比赛录像
+                    <Menu.Item key="record" path="" link="http://act.dota2.com.cn/match/list">
+                        <Icon type="clock-circle-o" />赛事中心
                     </Menu.Item>
                     <Menu.Item key="webcam" path="/webcam">
                         <Icon type="video-camera" />大神直播
-                    </Menu.Item>
-                    <Menu.Item className='ant-menu-item-no-bottom top-search'>
-                        <HeaderSearch placeholder="搜索...">
-                        </HeaderSearch>
                     </Menu.Item>
                 </Menu>
             </div>
