@@ -10,7 +10,7 @@ class TopMenu extends Component {
         let currentMenu = '';
         switch(pathname){
             case '/':
-                currentMenu = 'loadscree';
+                currentMenu = 'picture';
                 break;
             case '/video':
                 currentMenu = 'video';
@@ -39,7 +39,7 @@ class TopMenu extends Component {
                     <Menu.Item className='ant-menu-item-no-bottom'>
                         <img alt='logo' src={logo}/>
                     </Menu.Item>
-                    <Menu.Item key="loadscree" path="/">
+                    <Menu.Item key="picture" path="/">
                         <Icon type="picture" />载入动画
                     </Menu.Item>
                     <Menu.Item key="video" path="/video">
