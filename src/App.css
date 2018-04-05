@@ -29,6 +29,7 @@
 body,footer,#root{ background-image: url(./img/bg.jpg) !important; }
 footer{padding: 0;margin-top: 50px;}
 footer .am_info_line{ color: #999; }
+footer ..am_footer{padding: 0;}
 footer a{color: unset}
 footer .am_info_line:hover{ color: #BA4429; }
 footer a:hover{color: unset}
