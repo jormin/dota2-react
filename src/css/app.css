@@ -303,7 +303,6 @@ content: " ";display: block;margin-top: -7px;margin-left: -3px; }
 .am_footer_don { max-width: 300px;}
 .am_footer_weixin img {width: 98px; height: 98px; margin-bottom: 10px; display: block;}
 .am_footer_ddon img {width: 98px; height: 98px; margin-bottom: 10px; display: block;}
-
 }
 @media only screen and (max-width: 900px) {
 .article_nr {  -webkit-transition: all 0.4s ease;transition: all 0.4s ease; max-width: 95%;    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
