@@ -73,6 +73,11 @@ footer a:hover{color: unset}
 .am-gallery-item .am_img{ max-height: 166px;border-radius: 5px; }
 .am-g .index-img{margin: 10% 0;width: 100%;}
 .preview-image{border: 1px solid #333;}
+.antd-pro-exception-exception{margin: 15% 0;}
+.antd-pro-exception-exception .antd-pro-exception-desc{color: #BA4429 !important;}
+.not-found .body{background: #010101 !important;max-width: 100%;background: #010101 !important;text-align: center;overflow: hidden;}
+.not-found .body img{height: 910px;margin-top: -55px;}
+.not-found .am_footer{background: #010101 !important;margin-top: 0;}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -52,7 +52,7 @@ class TopMenu extends Component {
                     <Menu.Item key="record" path="" link="http://act.dota2.com.cn/match/list">
                         <Icon type="clock-circle-o" />赛事中心
                     </Menu.Item>
-                    <Menu.Item key="webcam" path="/webcam">
+                    <Menu.Item key="star" path="/star">
                         <Icon type="video-camera" />大神直播
                     </Menu.Item>
                 </Menu>

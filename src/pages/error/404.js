@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../../components/header';
-import Content from './content';
 import Footer from '../../components/footer';
 import Config from '../../config.json';
-class Index extends Component {
+import bgImg from '../../img/404_bg.jpg';
+
+class NotFound extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -29,15 +30,17 @@ class Index extends Component {
 	componentDidMount () {
 		this.getSiteConfig();
     }
-  	render() {
-    	return (
-			<div>
-				<Header history={this.history}></Header>
-				<Content></Content>
-				<Footer site={this.state.config.site}></Footer>
-			</div>
-    	);
-  	}
+    render() { 
+        return ( 
+            <div className='not-found'>
+                <Header history={this.history}></Header>
+                <div className="body am-g">
+                    <img src={bgImg} alt="404背景"/>
+                </div>
+                <Footer site={this.state.config.site}></Footer>
+            </div>
+         )
+    }
 }
  
-export default Index;
+export default NotFound;
