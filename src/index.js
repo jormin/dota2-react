@@ -17,7 +17,7 @@ ReactDOM.render(
             <Route exact path='/' component={Index}/>
             <Route exact path='/picture' component={Picture}/>
             <Route exact path='/video' component={Video}/>
-            <Route exact path='*' component={NotFound}/>
+            <Route component={NotFound} />
         </div>
     </HashRouter>
     , document.getElementById('root'));

@@ -35,7 +35,9 @@ class NotFound extends Component {
             <div className='not-found'>
                 <Header history={this.history}></Header>
                 <div className="body am-g">
-                    <img src={bgImg} alt="404背景"/>
+                    <div>
+                        <img src={bgImg} alt="404背景"/>
+                    </div>
                 </div>
                 <Footer site={this.state.config.site}></Footer>
             </div>
