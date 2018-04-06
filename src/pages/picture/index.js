@@ -9,7 +9,7 @@ class Picture extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-			loading: true,
+			loading: false,
 			pictures: [],
 			page: 1,
 			totalPages: 1,
@@ -33,6 +33,12 @@ class Picture extends Component {
         })
 	}
 	getPictures(){
+		if(this.state.page > this.state.totalPages || this.state.loading === true){
+			return;
+		}
+		this.setState({
+			loading: true,
+		});
         axios.get(Config.apiDomain+Config.api.picture.index, {  
 			params : {
 				page : this.state.page
@@ -62,7 +68,7 @@ class Picture extends Component {
 	}
 	componentDidMount () {
 		this.getSiteConfig();
-		this.state.loading && this.getPictures();
+		this.getPictures();
         window.addEventListener('scroll', this.handleScroll.bind(this));
     }
     componentWillUnmount() {
@@ -71,9 +77,6 @@ class Picture extends Component {
     handleScroll(event) {
         var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
         if(document.documentElement.scrollHeight === document.documentElement.clientHeight + scrollTop ) {
-			this.setState({
-				loading: true,
-			});
             this.getPictures();
         }  
     }
